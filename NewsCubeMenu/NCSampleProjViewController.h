@@ -1,5 +1,5 @@
 //
-// NCAppDelegate.h
+// NCSampleProjViewController.h
 // NewsCubeMenu
 //
 // Copyright (c) 2012 Shota Kondou, Cyclin. and FOU.Inc.
@@ -25,9 +25,13 @@
 // THE SOFTWARE.
 
 #import <UIKit/UIKit.h>
+#import "NCMenu.h"
 
-@interface NCAppDelegate : UIResponder <UIApplicationDelegate>
+@interface NCSampleProjViewController : UIViewController<UIWebViewDelegate, NCMenuDelegate>
 
-@property (strong, nonatomic) UIWindow *window;
+@property(nonatomic, strong) UIWebView *webView;
+
+// NCMenu
+@property(nonatomic, strong) NCMenu *newsCubeMenu;
 
 @end
