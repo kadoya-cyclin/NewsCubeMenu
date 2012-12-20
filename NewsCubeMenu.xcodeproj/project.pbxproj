@@ -18,6 +18,7 @@
 		800B7DE61682F12E00F0D70F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 800B7DE51682F12E00F0D70F /* Default-568h@2x.png */; };
 		800B7E241682F3C000F0D70F /* NCMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 800B7E231682F3C000F0D70F /* NCMenu.m */; };
 		800B7E271682F3D700F0D70F /* NCMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 800B7E261682F3D700F0D70F /* NCMenuItem.m */; };
+		800B7E291682FCF000F0D70F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 800B7E281682FCF000F0D70F /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		800B7E231682F3C000F0D70F /* NCMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NCMenu.m; path = NewsCubeMenu/NCMenu.m; sourceTree = "<group>"; };
 		800B7E251682F3D700F0D70F /* NCMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NCMenuItem.h; path = NewsCubeMenu/NCMenuItem.h; sourceTree = "<group>"; };
 		800B7E261682F3D700F0D70F /* NCMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NCMenuItem.m; path = NewsCubeMenu/NCMenuItem.m; sourceTree = "<group>"; };
+		800B7E281682FCF000F0D70F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				800B7E291682FCF000F0D70F /* QuartzCore.framework in Frameworks */,
 				800B7DD01682F12E00F0D70F /* UIKit.framework in Frameworks */,
 				800B7DD21682F12E00F0D70F /* Foundation.framework in Frameworks */,
 				800B7DD41682F12E00F0D70F /* CoreGraphics.framework in Frameworks */,
@@ -57,6 +60,7 @@
 		800B7DC01682F12D00F0D70F = {
 			isa = PBXGroup;
 			children = (
+				800B7E281682FCF000F0D70F /* QuartzCore.framework */,
 				800B7DD51682F12E00F0D70F /* NewsCubeMenu */,
 				800B7DCE1682F12E00F0D70F /* Frameworks */,
 				800B7DCC1682F12E00F0D70F /* Products */,

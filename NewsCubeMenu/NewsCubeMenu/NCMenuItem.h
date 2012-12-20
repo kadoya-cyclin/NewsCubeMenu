@@ -12,6 +12,7 @@
 
 @interface NCMenuItem : UIImageView
 
+@property(nonatomic) CGPoint startPoint;
 @property(nonatomic, strong) UIImageView *contentImageView;
 
 @property(nonatomic, weak) id <NCMenuItemDelegate> delegate;
@@ -22,6 +23,6 @@
 @end
 
 @protocol NCMenuItemDelegate <NSObject>
--(void)menuItemTouchesBegan:(NCMenuItem *)menuItem;
--(void)menuItemTouchesEnd:(NCMenuItem *)menuItem;
+-(void)newsCubeMenuItemTouchesBegan:(NCMenuItem *)menuItem;
+-(void)newsCubeMenuItemTouchesEnd:(NCMenuItem *)menuItem;
 @end

@@ -7,7 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NCMenuItem.h"
 
-@interface NCMenu : UIView
+@protocol NCMenuDelegate;
 
+@interface NCMenu : UIView<NCMenuItemDelegate, UIScrollViewDelegate>
+
+@property(nonatomic, strong) NSArray *menuArray;
+@property(nonatomic, strong) UIScrollView *scrollView;
+
+@property(nonatomic, weak) id <NCMenuDelegate> delegate;
+
+// Create MenuBase
+-(id)initWithFrame:(CGRect)frame withBackgroundColor:(UIColor *)bgColor menuItems:(NSArray *)menuItems;
+@end
+
+@protocol NCMenuDelegate <NSObject>
+-(void)newsCubeMenu:(NCMenu *)menu didSelectIndex:(NSInteger)selectedIndex;
 @end

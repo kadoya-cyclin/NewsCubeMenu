@@ -46,8 +46,8 @@ static inline CGRect ScaleRect(CGRect rect, float n){
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     self.highlighted = YES;
     
-    if ([_delegate respondsToSelector:@selector(menuItemTouchesBegan:)]) {
-        [_delegate menuItemTouchesBegan:self];
+    if ([_delegate respondsToSelector:@selector(newsCubeMenuItemTouchesBegan:)]) {
+        [_delegate newsCubeMenuItemTouchesBegan:self];
     }
 }
 
@@ -63,8 +63,8 @@ static inline CGRect ScaleRect(CGRect rect, float n){
     self.highlighted = NO;
     CGPoint location = [[touches anyObject] locationInView:self];
     if (CGRectContainsPoint(ScaleRect(self.bounds, 2.0f), location)) {
-        if ([_delegate respondsToSelector:@selector(menuItemTouchesEnd:)]) {
-            [_delegate menuItemTouchesEnd:self];
+        if ([_delegate respondsToSelector:@selector(newsCubeMenuItemTouchesEnd:)]) {
+            [_delegate newsCubeMenuItemTouchesEnd:self];
         }
     }
 }
