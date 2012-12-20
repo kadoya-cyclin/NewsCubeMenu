@@ -17,7 +17,7 @@ static inline CGRect ScaleRect(CGRect rect, float n){
 #pragma mark -- Initialization And CreanUp --
 -(id)initWithImage:(UIImage *)image highlightedImage:(UIImage *)hImage ContentImage:(UIImage *)cImage highlightedContentImage:(UIImage *)hcImage{
     self = [super init];
-    if (self) {
+    if (!self) {
         return nil;
     }
     
