@@ -1,10 +1,28 @@
 //
-//  NCSampleProjViewController.m
-//  NewsCubeMenu
+// NCSampleProjViewController.m
+// NewsCubeMenu
 //
-//  Created by kadoya on 2012/12/20.
-//  Copyright (c) 2012年 Cyclin. All rights reserved.
+// Copyright (c) 2012 Shota Kondou, Cyclin. and FOU.Inc.
+// http://cyclin.jp
+// http://fou.co.jp
 //
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+// THE SOFTWARE.
 
 #import "NCSampleProjViewController.h"
 #import "NCMenu.h"
@@ -49,9 +67,8 @@
 
 #pragma mark -- Settings --
 -(void)setUpWebView{
-    CGRect screenBounds = [[UIScreen mainScreen] bounds];
-    CGRect statusBarFrame = [UIApplication sharedApplication].statusBarFrame;
-    CGRect webViewFrame = CGRectMake(0, 0, screenBounds.size.width, screenBounds.size.height - statusBarFrame.size.height);
+    CGRect applicationFrame = [[UIScreen mainScreen] applicationFrame];
+    CGRect webViewFrame = CGRectMake(0, 0, applicationFrame.size.width, applicationFrame.size.height);
     _webView = [[UIWebView alloc] initWithFrame:webViewFrame];
     [_webView setDelegate:self];
     [self.view addSubview:_webView];
@@ -75,9 +92,10 @@
     }
     
     // Create NCMenu
-    CGRect windowFrame = [[UIScreen mainScreen] bounds];
-    CGRect newsCubeMenuPos = CGRectMake(0, windowFrame.size.height, windowFrame.size.width, 55);
-    _newsCubeMenu = [[NCMenu alloc] initWithFrame:newsCubeMenuPos withBackgroundColor:[UIColor redColor] menuItems:menus];
+    CGRect applicationFrame = [[UIScreen mainScreen] applicationFrame];
+    CGRect newsCubeMenuPos = CGRectMake(0,applicationFrame.size.height, applicationFrame.size.width, 70);
+    _newsCubeMenu = [[NCMenu alloc] initWithFrame:newsCubeMenuPos withBackgroundColor:[UIColor clearColor] menuItems:menus];
+    [_newsCubeMenu setDelegate:self];
     [_webView addSubview:_newsCubeMenu];
     
     
@@ -95,7 +113,8 @@
     [UIView animateWithDuration:0.2f animations:^{
         CGRect frame = _newsCubeMenu.frame;
 //        frame.origin.y -= _newsCubeMenu.frame.size.height;
-        frame.origin.y -= 100;
+        frame.origin.y -= frame.size.height;
+        _newsCubeMenu.frame = frame;
     } completion:^(BOOL finished) {
         
     }];
@@ -120,6 +139,12 @@
 
 -(void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error{
     
+}
+
+
+#pragma mark -- NCMenu Delegate Method --
+-(void)newsCubeMenu:(NCMenu *)menu didSelectIndex:(NSInteger)selectedIndex{
+    NSLog(@"%s:SelectedIndex:%d",__func__,selectedIndex);
 }
 
 @end

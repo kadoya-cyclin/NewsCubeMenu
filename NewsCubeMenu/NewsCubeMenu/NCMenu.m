@@ -1,10 +1,28 @@
 //
-//  NCMenu.m
-//  NewsCubeMenu
+// NCMenu.m
+// NewsCubeMenu
 //
-//  Created by kadoya on 2012/12/20.
-//  Copyright (c) 2012年 Cyclin. All rights reserved.
+// Copyright (c) 2012 Shota Kondou, Cyclin. and FOU.Inc.
+// http://cyclin.jp
+// http://fou.co.jp
 //
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+// THE SOFTWARE.
 
 #import "NCMenu.h"
 #import "NCMenuItem.h"
@@ -52,11 +70,9 @@ static CGFloat const kScrollViewItemMarginWidth = 15.0f;
     int i = 0;
     for (NCMenuItem *menuItem in _menuArray) {
         menuItem.tag = 1000 + i;
-        //menuItem.startPoint = CGPointMake(menuItem.image.size.width/2 + kScrollViewFirstWidth + kScrollViewItemMarginWidth * i + menuItem.image.size.width * i, self.frame.size.height/2);
         menuItem.center = CGPointMake(menuItem.image.size.width/2 + kScrollViewFirstWidth + kScrollViewItemMarginWidth * i + menuItem.image.size.width * i, self.frame.size.height/2);
         menuItem.delegate = self;
         [_scrollView addSubview:menuItem];
-        [self bringSubviewToFront:menuItem];        // NOTE: ちょっと調査を行うこと...
         
         i++;
     }
